@@ -14,7 +14,6 @@ export class WidgetContainerComponent implements AfterViewInit {
   constructor(private stateService: StateService) { }
 
   ngAfterViewInit() {
-    console.log('onInit', this.config);
     this.load(this.config);
   }
 

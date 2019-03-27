@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
 
   @Input('state')
   set state(state: string) {
-      console.debug('client-b received state', state);
+    console.debug('client-b received state', state);
   }
 
   @Output() message = new EventEmitter<any>();

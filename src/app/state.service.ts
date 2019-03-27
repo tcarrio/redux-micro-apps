@@ -4,19 +4,16 @@ import { Subject } from 'rxjs';
 @Injectable({ providedIn: 'root' })
 export class StateService {
 
-    constructor() { }
+  private state$ = new Subject();
+  private clients: HTMLElement[] = [];
 
-    private state$ = new Subject();
-    private clients: HTMLElement[] = [];
+  registerClient(client: HTMLElement) {
+    this.clients.push(client);
+  }
 
-    public registerClient(client: HTMLElement) {
-        this.clients.push(client);
+  setState(state: string) {
+    for (let client of this.clients) {
+      client.setAttribute('state', state);
     }
-
-    public setState(state: string) {
-        for(let client of this.clients) {
-            client.setAttribute('state', state);
-        }
-    }
-
+  }
 }

@@ -10,8 +10,6 @@ import { StateService } from './state.service';
 })
 export class AppComponent {
 
-  constructor() { }
-
   config = {
     clientA: {
       loaded: false,
@@ -22,6 +20,16 @@ export class AppComponent {
       loaded: false,
       path: 'client-b/main.js',
       element: 'client-b'
+    },
+    clientC: {
+      loaded: false,
+      path: 'client-c/main.js',
+      element: 'client-c'
+    },
+    clientD: {
+      loaded: false,
+      path: 'client-d/main.js',
+      element: 'client-d'
     },
   };
 }

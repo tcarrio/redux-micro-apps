@@ -9,17 +9,19 @@ import { Page2Component } from './page2/page2.component';
 import { RouterModule } from '@angular/router';
 import { EmptyComponent } from './empty/empty.component';
 import { CoreComponent } from './core/core.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     BrowserModule,
+    FormsModule,
     RouterModule.forRoot([
       { path: 'client-a', component: CoreComponent, children: [
         { path: 'page1', component: Page1Component },
         { path: 'page2', component: Page2Component },
       ]},
       { path: '**', component: EmptyComponent }
-    ], { useHash: true })
+    ], { useHash: true }),
   ],
   declarations: [
     AppComponent,
