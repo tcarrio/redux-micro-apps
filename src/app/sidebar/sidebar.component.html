@@ -1,40 +1,36 @@
-
 <div class="sidebar-wrapper">
-    <div class="logo">
-        <a class="simple-text">
-            <div class="logo-img">
-                <img src="../../assets/img/angular2-logo.png" alt="">
-            </div>
-            MicroApps
-        </a>
-    </div>
-    <ul class="nav">
-        <li>
-            <a href="#">
-                <i class="ti-home"></i>
-                <p>Home</p>
-            </a>
-        </li>
+  <div class="logo">
+    <a class="simple-text">
+      <div class="logo-img">
+        <img src="../../assets/img/angular2-logo.png" alt="">
+      </div>
+      MicroApps
+    </a>
+  </div>
 
-        <li>
-            <a href="#/client-a/page1">
-                <i class="ti-arrow-top-right"></i>
-                <p>Flights</p>
-            </a>
-        </li>
+  <ul class="nav">
+    <li>
+      <a href="#"><i class="ti-home"></i> Home</a>
+    </li>
 
-        <li>
-            <a href="#/client-b/page1">
-                <i class="ti-user"></i>
-                <p>Passengers</p>
-            </a>
-        </li>
+    <li>
+      <a href="#/client-a"><i class="ti-arrow-top-right"></i> Client A</a>
+    </li>
 
-        <li routerLinkActive="active">
-            <a (click)="sendState()">
-                <i class="ti-close"></i>
-                <p>Send State</p>
-            </a>
-            </li>
-    </ul>
+    <li>
+      <a href="#/client-b"><i class="ti-arrow-top-right"></i> Client B</a>
+    </li>
+
+    <li>
+      <a href="#/client-c/page1"><i class="ti-arrow-top-right"></i> Client C</a>
+    </li>
+
+    <li>
+      <a href="#/client-d/page1"><i class="ti-arrow-top-right"></i> Client D</a>
+    </li>
+
+    <li>
+      <a (click)="sendState()"><i class="ti-close"></i> Send State</a>
+    </li>
+  </ul>
 </div>
