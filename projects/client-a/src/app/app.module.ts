@@ -3,13 +3,15 @@ import { NgModule, Injector, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { createCustomElement } from '@angular/elements';
+import { environment } from '../environments/environment';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
     AppComponent,
   ],
   imports: [
-    BrowserModule,
+    CommonModule,
   ],
   entryComponents: [
     AppComponent
@@ -18,7 +20,9 @@ import { createCustomElement } from '@angular/elements';
 })
 export class AppModule {
 
-  constructor(private injector: Injector) { }
+  constructor(private injector: Injector) {
+    this.ngDoBootstrap();
+  }
 
   ngDoBootstrap() {
     const elements: any[] = [

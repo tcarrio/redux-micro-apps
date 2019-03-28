@@ -9,19 +9,20 @@ import { AppComponent } from './app.component';
 import { CoreComponent } from './core/core.component';
 import { Page1Component } from './page1/page1.component';
 import { Page2Component } from './page2/page2.component';
+import { environment } from '../environments/environment';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
   imports: [
-    BrowserModule,
+    CommonModule,
     FormsModule,
-    RouterModule.forRoot([
-      { path: 'client-b', component: CoreComponent, children: [
-        { path: 'add',  component: Page1Component },
-        { path: 'view', component: Page2Component },
+    RouterModule.forChild([
+      { path: '', component: CoreComponent, children: [
+        { path: 'add-users',  component: Page1Component },
+        { path: 'show-users', component: Page2Component },
       ]},
-      { path: '**', redirectTo: '/client-b/add' }
-    ], { useHash: true }),
+    ]),
   ],
   declarations: [
     AppComponent,

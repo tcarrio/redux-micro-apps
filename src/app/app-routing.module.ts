@@ -6,12 +6,12 @@ import { NoPageComponent } from './pages/no-page/no-page.component';
 import { ClientRoutingComponent } from './pages/client-routing/client-routing.component';
 
 const routes: Routes = [
-  { path: 'home',     component: HomeComponent },
+  { path: 'home',     loadChildren: './features/home/home.module#HomeModule' },
+  { path: 'client-b', loadChildren: '../../projects/client-b/src/app/app.module#AppModule' },
   { path: '404',      component: NoPageComponent },
-  { path: 'client-b', component: ClientRoutingComponent, pathMatch: 'prefix' },
 
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: '**', redirectTo: '/404' },
+  // { path: '**', redirectTo: '/404' },
 ];
 
 @NgModule({

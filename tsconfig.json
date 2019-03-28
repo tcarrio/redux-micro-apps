@@ -1,5 +1,10 @@
 {
   "compileOnSave": false,
+  "include": [
+    "./src/**/*",
+    "./projects/client-a/src/**/*",
+    "./projects/client-b/src/**/*",
+  ],
   "compilerOptions": {
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",

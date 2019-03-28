@@ -2,7 +2,7 @@ import { Component, Input, Output, EventEmitter, ViewEncapsulation, OnInit } fro
 import { UsersService } from 'src/app/services/users.service';
 
 @Component({
-  selector: 'app-root',
+  selector: 'client-a',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   encapsulation: ViewEncapsulation.Emulated
