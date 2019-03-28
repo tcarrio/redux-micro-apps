@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-page2',
@@ -6,9 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./page2.component.scss']
 })
 export class Page2Component {
-  username: string;
 
-  handleSubmit(): void {
-    //
+  get users(): string[] {
+    return this.usersService.users;
   }
+
+  constructor(private usersService: UsersService) { }
 }

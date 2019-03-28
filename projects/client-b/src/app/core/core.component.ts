@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
     <div id="client-a">
       <div class="card">
         <div class="content">
-          <a routerLink="page1">Page 1</a> | <a routerLink="page2">Page 2</a>
+          Users: <a routerLink="add">Add</a> | <a routerLink="view">View All</a>
         </div>
       </div>
       <router-outlet></router-outlet>

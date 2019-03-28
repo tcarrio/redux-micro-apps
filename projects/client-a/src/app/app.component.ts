@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter, ViewEncapsulation, OnInit } from '@angular/core';
+import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +15,12 @@ export class AppComponent implements OnInit {
   }
 
   @Output() message = new EventEmitter<any>();
+
+  get userCount(): number {
+    return this.usersService.users.length;
+  }
+
+  constructor(private usersService: UsersService) { }
 
   ngOnInit() {
     // just for demonstration!

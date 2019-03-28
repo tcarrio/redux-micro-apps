@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
 
     // Standalone mode
     if (environment.standalone) {
-      this.router.navigate(['/client-b/page1']);
+      this.router.navigate(['/client-b/add']);
     }
 
     // just for demonstration!
