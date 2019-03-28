@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
-import { StateService } from '../../state.service';
+import { StateService } from '../../services/state.service';
 
 @Component({
   selector: 'widget-container',

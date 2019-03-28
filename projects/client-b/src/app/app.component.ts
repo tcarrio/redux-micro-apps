@@ -1,4 +1,6 @@
+import { Observable } from 'rxjs';
 import { Component, ViewEncapsulation, Input, Output, EventEmitter, OnInit, OnChanges } from '@angular/core';
+import { Router } from '@angular/router';
 import { environment } from '../environments/environment';
 
 @Component({
@@ -16,7 +18,16 @@ export class AppComponent implements OnInit {
 
   @Output() message = new EventEmitter<any>();
 
+  constructor(private router: Router) { }
+
   ngOnInit() {
+    this.router.initialNavigation(); // Manually triggering initial navigation for @angular/elements ?
+
+    // Standalone mode
+    if (environment.standalone) {
+      this.router.navigate(['/client-b/page1']);
+    }
+
     // just for demonstration!
     setTimeout(() => {
       this.message.next('client b initialized!');
