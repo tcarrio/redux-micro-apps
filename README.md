@@ -32,3 +32,16 @@ For using everything together, you have to build the example and run it:
 npm run build
 npm start
 ```
+
+## References:
+
+A list of articles and more that I came across which helped with the design and implementation:
+
+- https://github.com/angular-redux/store/blob/master/articles/fractal-store.md
+- https://angular-redux.github.io/store/
+- https://github.com/erikras/ducks-modular-redux
+- http://nicolasgallagher.com/redux-modules-and-code-splitting/
+- https://github.com/angular-redux/example-app
+- https://github.com/angular-redux/store/blob/master/articles/quickstart.md
+- https://github.com/angular-redux/platform/tree/master/packages/store
+- https://redux.js.org/introduction/getting-started
