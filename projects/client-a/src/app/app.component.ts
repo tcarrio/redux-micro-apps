@@ -1,14 +1,13 @@
-import { Component, Input, Output, EventEmitter, ViewEncapsulation, OnInit, OnDestroy } from '@angular/core';
-import { RegistryService } from 'src/app/services/registry.service';
-import { ReducerRegistry } from 'rdx-reducer-registry';
-import { select } from '@angular-redux/store';
+import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { select } from '@angular-redux/store';
 import reducer from './store';
+import { RegistryService } from 'src/app/services/registry.service';
 
 @Component({
-  selector: 'client-a',
+  selector:    'client-a',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  styleUrls: ['./app.component.scss'],
   encapsulation: ViewEncapsulation.Emulated
 })
 export class AppComponent implements OnInit {
@@ -16,8 +15,7 @@ export class AppComponent implements OnInit {
   @select(['client-a', 'userCount'])
   readonly userCount: Observable<number>;
 
-  constructor(private registryService: RegistryService) {
-  }
+  constructor(private registryService: RegistryService) { }
 
   ngOnInit() {
     this.registryService.get().register('client-a', reducer);

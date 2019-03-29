@@ -1,24 +1,23 @@
-import { Component, OnInit, Renderer, ViewChild, ElementRef } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { Component } from '@angular/core';
 
 @Component({
-    selector: 'navbar-cmp',
+    selector:    'navbar-cmp',
     templateUrl: 'navbar.component.html'
 })
 export class NavbarComponent {
-    
-    private sidebarVisible: boolean = false;
 
-    sidebarToggle(){
-        var body = document.getElementsByTagName('body')[0];
+  private _sidebarVisible: boolean = false;
 
-        if(this.sidebarVisible == false){
-            body.classList.add('nav-open');
-            this.sidebarVisible = true;
-        } else {
-            this.sidebarVisible = false;
-            body.classList.remove('nav-open');
-        }
+  sidebarToggle(){
+    var body = document.getElementsByTagName('body')[0];
+
+    if (this._sidebarVisible == false){
+        body.classList.add('nav-open');
+        this._sidebarVisible = true;
     }
+    else {
+        this._sidebarVisible = false;
+        body.classList.remove('nav-open');
+    }
+  }
 }

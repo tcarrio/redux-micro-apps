@@ -15,13 +15,16 @@ import reducer from './store';
 })
 export class AppComponent implements OnInit {
 
-  constructor(private router: Router, private registryService: RegistryService) { }
+  constructor(
+    private router: Router,
+    private registryService: RegistryService
+  ) { }
 
   ngOnInit() {
-    console.log('client-b::ngOnInit')
     this.registryService.get().register('client-b', reducer);
 
-    this.router.initialNavigation(); // Manually triggering initial navigation for @angular/elements ?
+    // Manually triggering initial navigation for @angular/elements?!
+    this.router.initialNavigation();
 
     // Standalone mode
     if (environment.standalone) {

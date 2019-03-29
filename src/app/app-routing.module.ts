@@ -1,17 +1,21 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { HomeComponent } from './pages/home/home.component';
-import { NoPageComponent } from './pages/no-page/no-page.component';
-import { ClientRoutingComponent } from './pages/client-routing/client-routing.component';
+import { NoPageComponent } from './components/no-page/no-page.component';
+
 
 const routes: Routes = [
-  { path: 'home',     loadChildren: './features/home/home.module#HomeModule' },
+  // micro-app (angular element) imported through lazily-loaded module
+  { path: 'home', loadChildren: './features/home/home.module#HomeModule' },
+
+  // micro-app, itself, lazily-loaded
   { path: 'client-b', loadChildren: '../../projects/client-b/src/app/app.module#AppModule' },
-  { path: '404',      component: NoPageComponent },
+
+  // shell-app component
+  { path: '404', component: NoPageComponent },
 
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  // { path: '**', redirectTo: '/404' },
+  { path: '**', redirectTo: '/404' },
 ];
 
 @NgModule({

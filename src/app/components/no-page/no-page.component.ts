@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-no-page',
+  selector:    'app-no-page',
   templateUrl: './no-page.component.html',
-  styleUrls: ['./no-page.component.css']
+  styleUrls: ['./no-page.component.scss']
 })
 export class NoPageComponent { }

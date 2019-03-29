@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
 import { select, NgRedux } from '@angular-redux/store';
 import { Observable } from 'rxjs';
-
-interface IAppState {};
+import { IAppState } from './store';
 
 @Component({
-  selector: 'app-root',
+  selector:    'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
@@ -18,6 +17,5 @@ export class AppComponent {
     return this.ngRedux.getState();
   }
 
-  constructor(private ngRedux: NgRedux<IAppState>){}
-  
+  constructor(private ngRedux: NgRedux<IAppState>){ }
 }

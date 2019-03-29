@@ -8,12 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
-import { WidgetContainerComponent } from './components/widget-container/widget-container.component';
-
-// Pages
-import { HomeComponent } from './pages/home/home.component';
-import { NoPageComponent } from './pages/no-page/no-page.component';
-import { ClientRoutingComponent } from './pages/client-routing/client-routing.component';
+import { NoPageComponent } from './components/no-page/no-page.component';
 
 // Redux
 import { RegistryService } from './services/registry.service';
@@ -28,26 +23,26 @@ interface IAppState {};
     AppComponent,
     SidebarComponent,
     NavbarComponent,
-    WidgetContainerComponent,
-    HomeComponent,
     NoPageComponent,
-    ClientRoutingComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgReduxModule
+    NgReduxModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor(ngRedux: NgRedux<IAppState>, registryService: RegistryService) {
+
+  constructor(
+    ngRedux: NgRedux<IAppState>,
+    registryService: RegistryService,
+  ) {
     const registry = new ReducerRegistry();
-    registry.register('shell', reducer)
+    registry.register('shell', reducer);
     registryService.set(registry);
-    ngRedux.provideStore(createStore(registryService.get()))
-    console.log('Registered the reducer registry and provided its managed store to ngRedux')
+    ngRedux.provideStore(createStore(registryService.get()));
   }
 }

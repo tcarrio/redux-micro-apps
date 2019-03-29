@@ -1,5 +1,5 @@
 // Types
-interface IClientAState {
+export interface IClientAState {
   userCount: number
 }
 
@@ -15,15 +15,15 @@ const REMOVE_USER    = 'REMOVE_USER';
 export default function reducer(state: IClientAState = DEFAULT_STATE, action: any = {}) {
   switch (action.type) {
     case ADD_USER:
-      return Object.assign({}, state, {
-          userCount: state.userCount + 1
-      });
+      return Object.assign({}, state, { userCount: state.userCount + 1 });
+
     case SET_USER_COUNT:
-      return Object.assign({}, state, {
-          userCount: action.userCount
-      });
+      return Object.assign({}, state, { userCount: action.userCount });
+
     case REMOVE_USER:
       return state;
-    default: return state;
+
+    default:
+      return state;
   }
 }
