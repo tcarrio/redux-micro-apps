@@ -1,16 +1,15 @@
 import { RegistryService } from '../../services/registry.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import reducer from 'src/app/store';
+import reducer, { toggleDebugging } from 'src/app/store';
 import { Observable } from 'rxjs';
-import { select } from '@angular-redux/store';
-
+import { select, dispatch } from '@angular-redux/store';
 
 @Component({
     selector:    'sidebar-cmp',
     templateUrl: 'sidebar.component.html',
 })
 
-export class SidebarComponent implements OnInit, OnDestroy {
+export class SidebarComponent implements OnInit {
 
   @select(['shell', 'userCount'])
   readonly userCount: Observable<number>;
@@ -21,7 +20,5 @@ export class SidebarComponent implements OnInit, OnDestroy {
     this.registryService.get().register('shell', reducer);
   }
 
-  ngOnDestroy() {
-    this.registryService.get().deregister('shell', reducer);
-  }
+  @dispatch() debug = () => toggleDebugging();
 }

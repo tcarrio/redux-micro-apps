@@ -9,6 +9,6 @@
   <ul class="nav">
     <li><a href="#/home"><i class="ti-home"></i> Home</a></li>
     <li><a href="#/client-b"><i class="ti-user"></i> Users ({{ userCount | async }})</a></li>
-    <li><a href="#/404"><i class="ti-na"></i> 404</a></li>
+    <li><a (click)="debug()"><i class="ti-pulse"></i> Toggle Debugging</a></li>
   </ul>
 </div>

@@ -7,6 +7,12 @@
     <navbar-cmp></navbar-cmp>
 
     <div class="content">
+      <div *ngIf="debugFlag | async">
+        <p>userCount:</p>
+        <pre>{{ userCount | async }}</pre>
+        <p>state:</p>
+        <pre>{{ reduxState | json }}</pre>
+      </div>
       <router-outlet></router-outlet>
     </div>
   </div>
