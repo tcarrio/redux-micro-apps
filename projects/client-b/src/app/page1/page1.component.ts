@@ -13,7 +13,7 @@ export class Page1Component  {
 
   handleSubmit(): void {
     if (this.username) {
-      this.doAddUser({ name: this.username});
+      this.doAddUser({ name: this.username });
       console.log(`this.doAddUser({ name: ${this.username}});`)
       this.username = '';
     }
@@ -22,5 +22,5 @@ export class Page1Component  {
   // @dispatch() addUser = (user) => ({ type: ADD_USER, user });
   
   // when imported from ../store:
-  @dispatch() doAddUser = (user) => addUser(name);
+  @dispatch() doAddUser = (user) => addUser(user);
 }

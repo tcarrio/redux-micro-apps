@@ -20,7 +20,7 @@ const REMOVE_USER    = 'REMOVE_USER';
 export default function reducer(state: IClientBState = DEFAULT_STATE, action: any = {}) {
   switch (action.type) {
     case ADD_USER:
-      return Object.assign({}, { users: state.users + action.user} );
+      return Object.assign({}, state, { users: [...state.users, action.user] });
     case SET_USER_COUNT:
     case REMOVE_USER:
     default: return state;

@@ -5,7 +5,7 @@
 
   <div class="content">
     <ul>
-      <li *ngFor="let username of users | async">{{ username }}</li>
+      <li *ngFor="let user of users | async">{{ user.name }}</li>
     </ul>
   </div>
 </div>

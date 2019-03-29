@@ -19,7 +19,7 @@ import { NgReduxModule } from '@angular-redux/store';
     NgReduxModule,
     FormsModule,
     RouterModule.forChild([
-      { path: '', component: CoreComponent, children: [
+      { path: '', component: AppComponent, children: [
         { path: 'add-users',  component: Page1Component },
         { path: 'show-users', component: Page2Component },
       ]}

@@ -31,7 +31,7 @@
     "@webcomponents/custom-elements": "^1.1.0",
     "bootstrap": "^3.3.7",
     "core-js": "^2.5.4",
-    "rdx-reducer-registry": "0.1.1",
+    "rdx-reducer-registry": "0.1.2",
     "redux": "^4.0.1",
     "rxjs": "6.0.0",
     "zone.js": "^0.8.24"
