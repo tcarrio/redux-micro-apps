@@ -1,8 +1,8 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppModule } from 'projects/client-a/src/app/app.module';
-import { LandingComponent } from './components/landing/landing.component';
 import { HomeRoutingModule } from './home-routing.module';
+import { HomeComponent } from './home.component';
 
 @NgModule({
   imports: [
@@ -11,7 +11,7 @@ import { HomeRoutingModule } from './home-routing.module';
     AppModule
   ],
   declarations: [
-    LandingComponent
+    HomeComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

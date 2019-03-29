@@ -1,11 +1,12 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Injector, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { createCustomElement } from '@angular/elements';
+
+import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
+import { NgReduxModule } from '@angular-redux/store';
 
 import { AppComponent } from './app.component';
-import { createCustomElement } from '@angular/elements';
-import { CommonModule } from '@angular/common';
 
-import { NgReduxModule } from '@angular-redux/store';
 
 interface IAppState {};
 
@@ -25,10 +26,6 @@ interface IAppState {};
 export class AppModule {
 
   constructor(private injector: Injector) {
-    this.ngDoBootstrap();
-  }
-
-  ngDoBootstrap() {
     const elements: any[] = [
       [ AppComponent, 'client-a' ],
     ];
@@ -38,4 +35,6 @@ export class AppModule {
       customElements.define(name, el);
     }
   }
+
+  ngDoBootstrap() { }
 }
