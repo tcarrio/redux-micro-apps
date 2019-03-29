@@ -4,9 +4,9 @@ import { createCustomElement } from '@angular/elements';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
-import { AppComponent } from './app.component';
-import { Page1Component } from './page1/page1.component';
-import { Page2Component } from './page2/page2.component';
+import { UserComponent } from './user.component';
+import { UserFormComponent } from './pages/user-form/user-form.component';
+import { UserListComponent } from './pages/user-list/user-list.component';
 import { CommonModule } from '@angular/common';
 import { NgReduxModule } from '@angular-redux/store';
 
@@ -16,21 +16,21 @@ import { NgReduxModule } from '@angular-redux/store';
     NgReduxModule,
     FormsModule,
     RouterModule.forChild([
-      { path: '', component: AppComponent, children: [
-        { path: 'add',  component: Page1Component },
-        { path: 'list', component: Page2Component },
+      { path: '', component: UserComponent, children: [
+        { path: 'add',  component: UserFormComponent },
+        { path: 'list', component: UserListComponent },
         { path: '', redirectTo: 'list' },
       ]},
     ]),
   ],
   declarations: [
-    AppComponent,
-    Page1Component,
-    Page2Component,
+    UserComponent,
+    UserFormComponent,
+    UserListComponent,
   ],
   entryComponents: [
-    AppComponent,
+    UserComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class AppModule { }
+export class UserModule { }

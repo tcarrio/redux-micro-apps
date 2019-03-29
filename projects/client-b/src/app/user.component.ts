@@ -8,12 +8,12 @@ import { RegistryService } from 'src/app/services/registry.service';
 import reducer from './store';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  selector: 'user-root',
+  templateUrl: './user.component.html',
+  styleUrls: ['./user.component.scss'],
   encapsulation: ViewEncapsulation.Emulated
 })
-export class AppComponent implements OnInit {
+export class UserComponent implements OnInit {
 
   constructor(
     private router: Router,

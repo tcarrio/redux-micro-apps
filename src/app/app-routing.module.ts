@@ -9,7 +9,7 @@ const routes: Routes = [
   { path: 'home', loadChildren: './features/home/home.module#HomeModule' },
 
   // micro-app, itself, lazily-loaded
-  { path: 'client-b', loadChildren: '../../projects/client-b/src/app/app.module#AppModule' },
+  { path: 'client-b', loadChildren: '../../projects/client-b/src/app/user.module#UserModule' },
 
   // shell-app component
   { path: '404', component: NoPageComponent },

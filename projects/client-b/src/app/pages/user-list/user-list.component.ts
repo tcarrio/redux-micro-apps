@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
 import { select } from '@angular-redux/store';
 import { Observable } from 'rxjs';
-import { IUser } from '../store';
+import { IUser } from '../../store';
 
 @Component({
-  selector:    'app-page2',
-  templateUrl: './page2.component.html',
-  styleUrls: ['./page2.component.scss']
+  selector:    'user-list',
+  templateUrl: './user-list.component.html',
+  styleUrls: ['./user-list.component.scss']
 })
-export class Page2Component {
+export class UserListComponent {
 
   @select(['client-b', 'users'])
   readonly users: Observable<IUser[]>;
