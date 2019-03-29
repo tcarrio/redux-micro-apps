@@ -3,8 +3,11 @@ import { NgModule, Injector, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { createCustomElement } from '@angular/elements';
-import { environment } from '../environments/environment';
 import { CommonModule } from '@angular/common';
+
+import { NgReduxModule } from '@angular-redux/store';
+
+interface IAppState {};
 
 @NgModule({
   declarations: [
@@ -12,6 +15,7 @@ import { CommonModule } from '@angular/common';
   ],
   imports: [
     CommonModule,
+    NgReduxModule
   ],
   entryComponents: [
     AppComponent

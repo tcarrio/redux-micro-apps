@@ -29,11 +29,7 @@ export class WidgetContainerComponent implements AfterViewInit {
     const element: HTMLElement = document.createElement(configItem.element);
     content.appendChild(element);
 
-    element.addEventListener('message', msg => this.handleMessage(msg));
-    element.setAttribute('state', 'init');
-
-    script.onerror = () => console.error(`error loading ${configItem.path}`);
-    this.stateService.registerClient(element);
+    // this.stateService.registerClient(element);
   }
 
   handleMessage(msg: any): void {

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { UsersService } from 'src/app/services/users.service';
+import { addUser } from '../store';
+import { dispatch } from '@angular-redux/store';
 
 @Component({
   selector: 'app-page1',
@@ -10,12 +11,16 @@ export class Page1Component  {
 
   username: string;
 
-  constructor(private usersService: UsersService) { }
-
   handleSubmit(): void {
     if (this.username) {
-      this.usersService.add(this.username);
+      this.doAddUser({ name: this.username});
+      console.log(`this.doAddUser({ name: ${this.username}});`)
       this.username = '';
     }
   }
+
+  // @dispatch() addUser = (user) => ({ type: ADD_USER, user });
+  
+  // when imported from ../store:
+  @dispatch() doAddUser = (user) => addUser(name);
 }

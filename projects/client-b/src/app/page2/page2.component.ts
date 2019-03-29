@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
-import { UsersService } from 'src/app/services/users.service';
+import { select } from '@angular-redux/store';
+import { Observable } from 'rxjs';
+
+interface IUser {
+  name: string
+}
 
 @Component({
   selector: 'app-page2',
@@ -8,9 +13,7 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class Page2Component {
 
-  get users(): string[] {
-    return this.usersService.users;
-  }
+  @select(['client-b', 'users'])
+  readonly users: Observable<IUser[]>;
 
-  constructor(private usersService: UsersService) { }
 }

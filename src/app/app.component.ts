@@ -1,8 +1,8 @@
-import { element } from 'protractor';
 import { Component } from '@angular/core';
-import { Subject } from 'rxjs';
-import { StateService } from './services/state.service';
-import { UsersService } from './services/users.service';
+import { select, NgRedux } from '@angular-redux/store';
+import { Observable } from 'rxjs';
+
+interface IAppState {};
 
 @Component({
   selector: 'app-root',
@@ -11,7 +11,13 @@ import { UsersService } from './services/users.service';
 })
 export class AppComponent {
 
-  constructor(userService: UsersService) {
-    userService.add('bob');
+  @select(['shell', 'userCount'])
+  readonly userCount: Observable<number>;
+
+  get reduxState() {
+    return this.ngRedux.getState();
   }
+
+  constructor(private ngRedux: NgRedux<IAppState>){}
+  
 }

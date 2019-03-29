@@ -1,7 +1,11 @@
 import { Observable } from 'rxjs';
-import { Component, ViewEncapsulation, Input, Output, EventEmitter, OnInit, OnChanges } from '@angular/core';
+import { Component, ViewEncapsulation, Input, Output, EventEmitter, OnInit, OnDestroy, OnChanges } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from '../environments/environment';
+
+// Redux
+import { RegistryService } from 'src/app/services/registry.service';
+import reducer from './store';
 
 @Component({
   selector: 'app-root',
@@ -9,29 +13,23 @@ import { environment } from '../environments/environment';
   styleUrls: ['./app.component.scss'],
   encapsulation: ViewEncapsulation.Emulated
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
 
-  @Input('state')
-  set state(state: string) {
-    console.debug('client-b received state', state);
+  constructor(private router: Router, private registryService: RegistryService) { }
+
+  ngOnDestroy() {
+    this.registryService.get().deregister('client-b');
   }
 
-  @Output() message = new EventEmitter<any>();
-
-  constructor(private router: Router) { }
-
   ngOnInit() {
+    console.log('client-b::ngOnInit')
+    this.registryService.get().register('client-b', reducer);
+
     this.router.initialNavigation(); // Manually triggering initial navigation for @angular/elements ?
 
     // Standalone mode
     if (environment.standalone) {
       this.router.navigate(['/client-b/add']);
     }
-
-    // just for demonstration!
-    setTimeout(() => {
-      this.message.next('client b initialized!');
-    }, 2000);
-
   }
 }

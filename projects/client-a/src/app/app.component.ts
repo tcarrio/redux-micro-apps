@@ -1,5 +1,9 @@
-import { Component, Input, Output, EventEmitter, ViewEncapsulation, OnInit } from '@angular/core';
-import { UsersService } from 'src/app/services/users.service';
+import { Component, Input, Output, EventEmitter, ViewEncapsulation, OnInit, OnDestroy } from '@angular/core';
+import { RegistryService } from 'src/app/services/registry.service';
+import { ReducerRegistry } from 'rdx-reducer-registry';
+import { select } from '@angular-redux/store';
+import { Observable } from 'rxjs';
+import reducer from './store';
 
 @Component({
   selector: 'client-a',
@@ -7,25 +11,19 @@ import { UsersService } from 'src/app/services/users.service';
   styleUrls: ['./app.component.css'],
   encapsulation: ViewEncapsulation.Emulated
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
 
-  @Input('state')
-  set state(state: string) {
-    console.debug('client-a received state', state);
+  @select(['client-a', 'userCount'])
+  readonly userCount: Observable<number>;
+
+  constructor(private registryService: RegistryService) {
   }
-
-  @Output() message = new EventEmitter<any>();
-
-  get userCount(): number {
-    return this.usersService.users.length;
-  }
-
-  constructor(private usersService: UsersService) { }
 
   ngOnInit() {
-    // just for demonstration!
-    setTimeout(() => {
-      this.message.next('client a initialized!');
-    }, 2000);
+    this.registryService.get().register('client-a', reducer);
+  }
+
+  ngOnDestroy() {
+    this.registryService.get().deregister('client-a');
   }
 }

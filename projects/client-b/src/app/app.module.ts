@@ -11,17 +11,18 @@ import { Page1Component } from './page1/page1.component';
 import { Page2Component } from './page2/page2.component';
 import { environment } from '../environments/environment';
 import { CommonModule } from '@angular/common';
-
+import { NgReduxModule } from '@angular-redux/store';
 
 @NgModule({
   imports: [
     CommonModule,
+    NgReduxModule,
     FormsModule,
     RouterModule.forChild([
       { path: '', component: CoreComponent, children: [
         { path: 'add-users',  component: Page1Component },
         { path: 'show-users', component: Page2Component },
-      ]},
+      ]}
     ]),
   ],
   declarations: [

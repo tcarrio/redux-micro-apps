@@ -4,7 +4,7 @@
       <div class="logo-img">
         <img src="../../assets/img/angular2-logo.png" alt="">
       </div>
-      MicroApps (Users {{ userCount }})
+      MicroApps (Users {{ userCount | async }})
     </a>
   </div>
 
@@ -19,10 +19,6 @@
 
     <li>
       <a href="#/404"><i class="ti-home"></i> 404</a>
-    </li>
-
-    <li>
-      <a (click)="sendState()"><i class="ti-close"></i> Send State</a>
     </li>
   </ul>
 </div>

@@ -15,6 +15,14 @@ import { HomeComponent } from './pages/home/home.component';
 import { NoPageComponent } from './pages/no-page/no-page.component';
 import { ClientRoutingComponent } from './pages/client-routing/client-routing.component';
 
+// Redux
+import { RegistryService } from './services/registry.service';
+import { ReducerRegistry, createStore } from 'rdx-reducer-registry';
+import { NgRedux, NgReduxModule } from '@angular-redux/store';
+import reducer from './store';
+
+interface IAppState {};
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,9 +36,18 @@ import { ClientRoutingComponent } from './pages/client-routing/client-routing.co
   imports: [
     BrowserModule,
     AppRoutingModule,
+    NgReduxModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(ngRedux: NgRedux<IAppState>, registryService: RegistryService) {
+    const registry = new ReducerRegistry();
+    registry.register('shell', reducer)
+    registryService.set(registry);
+    ngRedux.provideStore(createStore(registryService.get()))
+    console.log('Registered the reducer registry and provided its managed store to ngRedux')
+  }
+}
