@@ -10,6 +10,9 @@ import { IAppState } from './store';
 })
 export class AppComponent {
 
+  @select(['shell', 'debugFlag'])
+  readonly debugFlag: Observable<boolean>;
+
   @select(['shell', 'userCount'])
   readonly userCount: Observable<number>;
 
