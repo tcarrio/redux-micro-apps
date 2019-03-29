@@ -29,9 +29,3 @@ export default function reducer(state: IClientBState = DEFAULT_STATE, action: an
 
 // Action Creators
 export const addUser = (user) => ({ type: ADD_USER, user });
-
-// side effects, only as applicable
-// e.g. thunks, epics, etc
-// export function getUser() {
-//   return dispatch => get('/api/endpoint').then(user => dispatch(updateUser(user)))
-// }

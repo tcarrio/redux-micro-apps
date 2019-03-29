@@ -1,15 +1,20 @@
 // Types
 interface IShellState {
   userCount: number
+  testing: boolean
 }
 
 // Defaults
-const DEFAULT_STATE: IShellState = { userCount: 0 };
+const DEFAULT_STATE: IShellState = {
+  userCount: 0,
+  testing: false
+};
 
 // Actions
-const SET_USER_COUNT = 'SET_USER';
-const ADD_USER       = 'ADD_USER';
-const REMOVE_USER    = 'REMOVE_USER';
+export const SET_USER_COUNT = 'SET_USER';
+export const ADD_USER       = 'ADD_USER';
+export const REMOVE_USER    = 'REMOVE_USER';
+export const TOGGLE_DEBUGGING = 'TOGGLE_DEBUGGING';
 
 // Reducer
 export default function reducer(state: IShellState = DEFAULT_STATE, action: any = {}) {
@@ -22,12 +27,16 @@ export default function reducer(state: IShellState = DEFAULT_STATE, action: any 
       return Object.assign({}, state, {
         userCount: action.userCount
       });
+    case TOGGLE_DEBUGGING:
+      return Object.assign({}, state, {
+        testing: !state.testing
+      });
     case REMOVE_USER:
-      return state;
     default: return state;
   }
 }
 
 // Action Creators
-// The shell won't be making any of the actions,
-// only registers reducers to maintain state 
+export function toggleDebugging() {
+  return { type: TOGGLE_DEBUGGING };
+}
