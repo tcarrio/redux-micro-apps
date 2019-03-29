@@ -13,13 +13,9 @@ import reducer from './store';
   styleUrls: ['./app.component.scss'],
   encapsulation: ViewEncapsulation.Emulated
 })
-export class AppComponent implements OnInit, OnDestroy {
+export class AppComponent implements OnInit {
 
   constructor(private router: Router, private registryService: RegistryService) { }
-
-  ngOnDestroy() {
-    this.registryService.get().deregister('client-b');
-  }
 
   ngOnInit() {
     console.log('client-b::ngOnInit')

@@ -11,7 +11,7 @@ import reducer from './store';
   styleUrls: ['./app.component.css'],
   encapsulation: ViewEncapsulation.Emulated
 })
-export class AppComponent implements OnInit, OnDestroy {
+export class AppComponent implements OnInit {
 
   @select(['client-a', 'userCount'])
   readonly userCount: Observable<number>;
@@ -21,9 +21,5 @@ export class AppComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.registryService.get().register('client-a', reducer);
-  }
-
-  ngOnDestroy() {
-    this.registryService.get().deregister('client-a');
   }
 }
